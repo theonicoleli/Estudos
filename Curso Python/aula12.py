@@ -5,7 +5,7 @@ while True:
     
     print("Jogo - Pedra, Papel ou Tesoura!")
     possiveis_variaveis = ['Pedra', 'Papel', 'Tesoura']
-    pontos_vencer = int(input("Jogadores quantos pontos para vencer? "))
+    pontos_vencer = int(input("Quantas rodadas para ser o vencedor? "))
 
     maquina_pontos=0   # Pontos para vencer a partida
     jogador_pontos=0   # Pontos para vencer a partida
