@@ -21,31 +21,37 @@ def is_float(string):
     except ValueError:
         return False
     
+media_saltos = {}
+    
 while True:
     saltos = []
     nome = input('Digite seu nome: ')
-    while len(saltos)<5:
-        salto = input('Digite a altura do salto em metros: ')
-        if salto=='' or salto==f'\D':
-            print('Digite a altura, por favor!')
-        elif is_float(salto):
-            salto = float(salto)
-            saltos.append(salto)
-    if len(saltos)==5:
-        maior_salto = max(saltos)
-        menor_salto = min(saltos)
-        len_saltos = len(saltos)-2
-        resto_saltos = (sum(saltos)-(menor_salto + maior_salto))/len_saltos
-
-        print(f'O maior salto foi: {maior_salto} metros')
-        print(f'O menor salto foi: {menor_salto} metros')
-        print(f'A média dos restos dos saltos foram: {round(resto_saltos, 2)} metros')
-
-        print('RESULTADO FINAL:')
-        print(f'A média de {nome} foi de {round(resto_saltos, 2)} metros')
-        print('='*100)
+    if nome in media_saltos:
+        print(f'Este nome já foi registrado! A média de {nome} foi de {media_saltos[nome]} metros')
     else:
-        continue
+        while len(saltos)<5:
+            salto = input('Digite a altura do salto em metros: ')
+            if salto=='' or salto==f'\D':
+                print('Digite a altura, por favor!')
+            elif is_float(salto):
+                salto = float(salto)
+                saltos.append(salto)
+        if len(saltos)==5:
+            maior_salto = max(saltos)
+            menor_salto = min(saltos)
+            len_saltos = len(saltos)-2
+            resto_saltos = (sum(saltos)-(menor_salto + maior_salto))/len_saltos
+
+            print(f'O maior salto foi: {maior_salto} metros')
+            print(f'O menor salto foi: {menor_salto} metros')
+            print(f'A média dos restos dos saltos foram: {round(resto_saltos, 2)} metros')
+            media_saltos[nome] = round(resto_saltos, 2)
+
+            print('RESULTADO FINAL:')
+            print(f'A média de {nome} foi de {round(resto_saltos, 2)} metros')
+            print('='*100)
+        else:
+            continue
 
 
 
