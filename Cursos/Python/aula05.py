@@ -38,7 +38,6 @@ for cont in range(quantidade_alunos):
     elif voto==2:
         davy+=1
         print('Você votou em Davy')
-        quantidade_alunos-=1
     else:
         print('Escolha um número válido')
 print('='*100)
