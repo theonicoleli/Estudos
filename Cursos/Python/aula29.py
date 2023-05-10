@@ -62,4 +62,7 @@ while True:
     if tipo_processamento.isdigit():
         tipo_processamento = int(tipo_processamento)
         processamentos(tipo_processamento)
+    else:
+        print('Selecione um valor válido!')
+        continue
             
