@@ -1,12 +1,11 @@
 import os
 
 lista = []
-fim = 0
 
 print('='*100)
 print('ESTUDO DE STRING COM LISTA')
 print('='*100)
-while fim==0:
+while True:
     opcao = input('Quais processos gostaria de realizar com sua lista:\n[1] inserir itens\n[2] Apagar itens\n[3] Verificar itens\n[4] Encerrar Programa\nOPÇÃO: ')
     if opcao.isdigit():
         opcao = int(opcao)
