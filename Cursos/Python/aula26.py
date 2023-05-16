@@ -2,12 +2,13 @@ import random
 import os
 
 numbers = [0,1,2,3,4,5,6,7,8,9]
+other_numbers = [1,2,3,4,5,6,7,8,9]
 
 while True:
     print('Digite os números para a MEGASENA')
 
     def quantidade_vezes():
-        return random.choice(numbers)
+        return random.choice(other_numbers)
     
     vezes = quantidade_vezes()
 
@@ -44,7 +45,12 @@ while True:
             digito = int(digito)
             digitos.append(digito)
             if digito in numeros_random:
-                acertos.append(digito)
+                if digito in acertos:
+                    if numeros_random.count(digito) > acertos.count(digito):
+                        acertos.append(digito)
+                else:
+                    acertos.append(digito)
+                    continue
         else:
             print('Digite um número válido!')
             vezes += 1
