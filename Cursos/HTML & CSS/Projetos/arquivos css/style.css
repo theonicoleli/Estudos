@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -60px; 
+}
+
+.Cadastrar {
+    color: rgb(63, 125, 123);
+    font-size: 60px;
+    background: rgb(177, 206, 221);
+    text-align: center;
+    margin-top: 0%;
+    margin-bottom: 20px;
+    width: 300%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.e-mail{
+    margin-top: 20%;
+}
+
+.senha {
+    margin-top: 0%;
+    margin-bottom: 20px;    
+}
+
+.button{
+    margin-top: 0%;
+    margin-bottom: 30px;  
+}
+
+.frase{
+    margin-top: 5%;
+}
+
+.registrar {
+    margin-top: 5%;
+    margin-bottom: 50px;
+}
+
+.e-mail,
+.senha,
+.button,
+.frase,
+.registrar {
+    text-align: center;
+    font-size: 25px;
+}
+
+.button {
+    margin-top: 10px;
+    font-style: italic;
+    color: rgb(63, 125, 123);
+    background: rgb(177, 206, 221);
+    padding: 10px 20px;
+}
+
+.registrar {
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 10px;
+}
