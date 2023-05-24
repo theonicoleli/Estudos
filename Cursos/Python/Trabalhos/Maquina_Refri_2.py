@@ -14,14 +14,58 @@ moedas_50_cent_pagamento = 0
 moedas_25_cent = 0+moedas_25_cent_pagamento
 moedas_50_cent = 0+moedas_50_cent_pagamento
 moedas_1_real = 0+moedas_1_real_pagamento
+cedula_20_reais_pagamento = 0
+cedula_10_reais_pagamento = 0
+cedula_5_reais_pagamento = 0
+cedula_2_reais_pagamento = 0
 cedula_2_reais = 0
 cedula_5_reais = 0
 cedula_10_reais = 0
 cedula_20_reais = 0
-moedas_pagamento_total = moedas_1_real_pagamento+moedas_25_cent_pagamento+moedas_50_cent_pagamento 
 moedas_totais = moedas_50_cent+moedas_25_cent+moedas_1_real+moedas_1_real_pagamento+moedas_25_cent_pagamento+moedas_50_cent_pagamento
-cedulas_totais = cedula_2_reais+cedula_5_reais+cedula_10_reais+cedula_20_reais
+cedulas_totais = cedula_2_reais+cedula_5_reais+cedula_10_reais+cedula_20_reais+cedula_20_reais_pagamento+cedula_10_reais_pagamento+cedula_5_reais_pagamento+cedula_2_reais_pagamento
 cedulas_moedas_totais = moedas_50_cent+moedas_25_cent+moedas_1_real+moedas_1_real_pagamento+moedas_25_cent_pagamento+moedas_50_cent_pagamento+cedula_2_reais+cedula_5_reais+cedula_10_reais+cedula_20_reais
+
+def pagamento_final(troco):
+    moedas_pagamento_total = moedas_1_real_pagamento+moedas_25_cent_pagamento+moedas_50_cent_pagamento
+    cedulas_pagamento_total = cedula_20_reais_pagamento+cedula_10_reais_pagamento+cedula_5_reais_pagamento+cedula_2_reais_pagamento
+    moedas_1_real += moedas_1_real_pagamento
+    moedas_50_cent += moedas_50_cent_pagamento
+    moedas_25_cent += moedas_25_cent_pagamento
+    cedula_20_reais += cedula_20_reais_pagamento
+    cedula_10_reais += cedula_10_reais_pagamento
+    cedula_5_reais += cedula_5_reais_pagamento
+    cedula_2_reais += cedula_2_reais_pagamento
+    print(f'Seu troco foi de {troco}')
+    if moedas_pagamento_total>0:
+        while troco>=20 and cedula_20_reais>0:
+            print("Estamos mandando uma cédula de 20 reais")
+            troco -= 20
+            cedula_20_reais-=1
+        while troco>= 10 and cedula_10_reais>0:
+            print("Estamos mandando uma cédula de 10 reais")
+            troco -= 10
+            cedula_10_reais-=1
+        while troco>= 5 and cedula_5_reais>0:
+            print("Estamos mandando uma cédula de 5 reais")
+            troco -= 5
+            cedula_5_reais-=1
+        while troco>= 2 and cedula_2_reais>0:
+            print("Estamos mandando uma cédula de 2 reais")
+            troco -= 2
+            cedula_2_reais-=1
+        while troco >= 1 and moedas_1_real>0:
+            print("Enviando uma moeda de 1 real")
+            troco -= 1
+            moedas_1_real-=1
+        while troco >= 0.5 and moedas_50_cent>0:
+            print("Estamos mandando uma moeda de 50 centavos")
+            troco -= 0.5
+            moedas_50_cent-=1
+        while troco >= 0.25 and moedas_25_cent>0:
+            print("Estamos mandando uma moeda de 25 centavos")
+            troco -= 0.25
+            moedas_25_cent-=1
 
 nomeadm = str(input("Olá Administrador, digite seu nome: "))
 nomemaquina = str(input("Digite o nome ao qual você deseja que a máquina tenha: "))
@@ -53,7 +97,7 @@ if add_reais == 1:
             add_reais += 1
             break
 elif add_reais == 2:
-    print('Ok!')
+    print('Ok! Encaminhando para o menu principal!')
 else:
     print('Por favor, selecione um número válido!')
 while True:
@@ -88,23 +132,15 @@ while True:
                 for cont in continuando_compra:
                     for num in produtos_preco_quantidade:
                         if cont[0] == num[0]:
-                            preco_para_pagar.append((cont[1], num[1]))
-                for q, p in preco_para_pagar:
-                    somatoria_final += q * p
+                            preco_para_pagar.append([cont[1], num[1]])
+                for itens in preco_para_pagar:
+                    somatoria_final += itens[0] * itens[1]
                 while continuacao_while==0:
                     preco_dos_produtos_atual = somatoria_final
-                    if continuar_pagando == 0 and somatoria_final == 0:
-                        preco_dos_produtos_atual = preco_dos_produtos_atual
+                    if continuar_pagando == 0:
                         pagamento = int(input(f'O custo a ser pago é de {preco_dos_produtos_atual}\nVocê deseja realizar o pagamento de qual forma:\n[1] Moedas\n[2] Cédulas\n[3] Moedas e Cédulas\nInsira a forma a qual você deseja ao lado: '))
-                    elif continuar_pagando ==0 and somatoria_final > 0:
-                        preco_dos_produtos_atual = preco_dos_produtos_atual
-                        pagamento = int(input(f'O custo a ser pago é de {preco_dos_produtos_atual}\nVocê deseja realizar o pagamento de qual forma:\n[1] Moedas\n[2] Cédulas\n[3] Moedas e Cédulas\nInsira a forma a qual você deseja ao lado: '))
-                    elif continuar_pagando == 1 and somatoria_final == 0:
-                        preco_dos_produtos_atual = (preco_dos_produtos_atual-pagamento_continuacao)
-                        pagamento = int(input(f'O custo a ser pago é de {preco_dos_produtos_atual}\nVocê deseja realizar o pagamento de qual forma:\n[1] Moedas\n[2] Cédulas\n[3] Moedas e Cédulas\nInsira a forma a qual você deseja ao lado: '))
-                    elif continuar_pagando == 1 and somatoria_final > 0:
-                        preco_dos_produtos_atual = (preco_dos_produtos_atual-pagamento_continuacao)
-                        pagamento = int(input(f'O custo a ser pago é de {preco_dos_produtos_atual}\nVocê deseja realizar o pagamento de qual forma:\n[1] Moedas\n[2] Cédulas\n[3] Moedas e Cédulas\nInsira a forma a qual você deseja ao lado: '))
+                    elif continuar_pagando == 1:
+                        pagamento = int(input(f'O custo a ser pago é de {preco_dos_produtos_atual-pagamento_continuacao}\nVocê deseja realizar o pagamento de qual forma:\n[1] Moedas\n[2] Cédulas\n[3] Moedas e Cédulas\nInsira a forma a qual você deseja ao lado: '))
                     if pagamento == 1:
                         entrada_dinheiro = int(input('Digite:\n[1] Moedas de 25 centavos\n[2] Moedas 50 centavos\n[3] Moedas 1 real\nInsira a forma a qual você deseja ao lado: '))
                         if entrada_dinheiro == 1:
@@ -134,6 +170,7 @@ while True:
                                     entrada_moedas_1_real -= entrada_moedas_1_real
                                 break
                         else:
+                            print(quantidade_dos_produtos[selecao-1], quantidade_selecionada)
                             quantidade_dos_produtos[selecao-1] -= quantidade_selecionada
                             if pagamento_total == preco_dos_produtos_atual:
                                 print(f'Muito obrigado por comprar conosco!\nA quantidade atual de {lista_de_produtos[selecao-1]} é de {quantidade_dos_produtos[selecao-1]}')
@@ -144,49 +181,15 @@ while True:
                                     pagamento_total-=preco_dos_produtos_atual
                                 else:
                                     pagamento_total-=(preco_dos_produtos_atual+pagamento_continuacao)
-                                if pagamento_total>0:
-                                    print(f'Seu troco foi de {pagamento_total}')
-                                else:
-                                    break
                                 if pagamento_total == 0:
                                     break
                                 else:
-                                    if pagamento_total>0 or pagamento_total>0 and cedulas_moedas_totais>0:
-                                        while pagamento_total>=20 and cedula_20_reais>0:
-                                            print("Estamos mandando uma cédula de 20 reais")
-                                            pagamento_total -= 20
-                                            cedula_20_reais-=1
-                                        while pagamento_total>= 10 and cedula_10_reais>0:
-                                            print("Estamos mandando uma cédula de 10 reais")
-                                            pagamento_total -= 10
-                                            cedula_10_reais-=1
-                                        while pagamento_total>= 5 and cedula_5_reais>0:
-                                            print("Estamos mandando uma cédula de 5 reais")
-                                            pagamento_total -= 5
-                                            cedula_5_reais-=1
-                                        while pagamento_total>= 2 and cedula_2_reais>0:
-                                            print("Estamos mandando uma cédula de 2 reais")
-                                            pagamento_total -= 2
-                                            cedula_2_reais-=1
-                                        while pagamento_total >= 1 and moedas_1_real>0:
-                                            print("Estamos mandando uma moeda de 1 real")
-                                            pagamento_total -= 1
-                                            moedas_1_real-=1
-                                        while pagamento_total >= 0.5 and moedas_50_cent>0:
-                                            print("Estamos mandando uma moeda de 50 centavos")
-                                            pagamento_total -= 0.5
-                                            moedas_50_cent-=1
-                                        while pagamento_total >= 0.25 and moedas_25_cent>0:
-                                            print("Estamos mandando uma moeda de 25 centavos")
-                                            pagamento_total -= 0.25
-                                            moedas_25_cent-=1
-                                        if pagamento_total<=0.04:
-                                            pagamento_total=0
-                                        if pagamento_total!=0:  
-                                            pagamento_total_possivel=1
-                                        else:
-                                            pagamento_total_possivel=0
+                                    pagamento_final(pagamento_total)
                             break
+                    elif pagamento == 2:
+                        print()
+                    elif pagamento == 3:
+                        print()
         else:
             print(f'Temos em estoque de {lista_de_produtos[selecao-1]}: {quantidade_dos_produtos[selecao-1]} unidades')
     else:
