@@ -26,17 +26,17 @@ class Carros:
             self.preco = float(preco_carro)
     
     @staticmethod
-    def menu_carros(carros):
-        for index, carro in enumerate(carros):
-            print(f'Carro {index + 1}:')
-            print('Marca:', carro.marca)
-            print('Modelo:', carro.nome)
-            print('Idade:', carro.idade)
-            print('Kilômetros por Litro:', carro.kilometrosL)
-            print('Tração:', carro.tracao)
-            print('Tipo:', carro.tipo)
-            print('Preço:', carro.preco)
-            print('-=' * 50)
+    def menu_carros(carro_selecionado):
+        print('-=' * 50)
+        print('Detalhes do Carro Selecionado:')
+        print('Marca:', carro_selecionado.marca)
+        print('Modelo do carro:', carro_selecionado.nome)
+        print(f'Idade: {carro_selecionado.idade} anos')
+        print('Kilômetros por Litro:', carro_selecionado.kilometrosL)
+        print('Tração:', carro_selecionado.tracao)
+        print('Tipo:', carro_selecionado.tipo)
+        print(f'Preço: R$ {carro_selecionado.preco}')
+        print('-=' * 50)
 
 carros = []
 
@@ -59,16 +59,7 @@ while True:
                 saber_mais = int(saber_mais)
                 if 1 <= saber_mais <= len(carros):
                     carro_selecionado = carros[saber_mais - 1]
-                    print('-=' * 50)
-                    print('Detalhes do Carro Selecionado:')
-                    print('Marca:', carro_selecionado.marca)
-                    print('Nome carro:', carro_selecionado.nome)
-                    print('Idade:', carro_selecionado.idade)
-                    print('Kilômetros por Litro:', carro_selecionado.kilometrosL)
-                    print('Tração:', carro_selecionado.tracao)
-                    print('Tipo:', carro_selecionado.tipo)
-                    print(f'Preço: R$ {carro_selecionado.preco}')
-                    print('-=' * 50)
+                    carro_selecionado.menu_carros(carro_selecionado)
                 else:
                     print('Selecione um carro válido!')
 
