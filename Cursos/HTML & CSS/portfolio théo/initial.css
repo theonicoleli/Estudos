@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(to right, whitesmoke 0%, rgb(192, 168, 146) 75%);
+}
+
+.nome {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    display: flex;
+    white-space: nowrap;
+    max-width: 100%;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(255, 255, 255);
+    border: 2px solid black;
+}
+
+#circle_image {
+    display: block;
+    justify-content: center;
+}
+
+#circle_image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 0px;
+    zoom: 200%;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 80px;
+}
+
+#square {
+    align-items: left;
+    justify-content: flex-start;
+    padding: 476px;
+    height: 100%;
+    width: 200px;
+}
+
+#outsquare {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 476px;
+    height: 100%;
+    width: 200px;
+    margin-left: auto;
+    background: none;
+    margin-right: 0;
+}
+
+#outsquare button {
+    padding: 20px 100px;
+    text-align: right;
+    display: inline-block;
+    float: right;
+    background: whitesmoke;
+    border-radius: 10px;
+    border: none;
+    transition: background 0.5s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+#outsquare button:hover {
+    transform: scale(1.05);
+    box-shadow: inset 0 0 0 100px rgba(192, 168, 146, 1);
+}
+
+.letter_button {
+    background: whitesmoke;
+    font-size: 20px;
+    color: black;
+}
+
+
+
