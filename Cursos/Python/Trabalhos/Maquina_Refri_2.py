@@ -375,6 +375,13 @@ while True:
                 cedula_10_reais += int(input('Digite a quantidade de cédulas de 10 reais: '))
                 cedula_20_reais += int(input('Digite a quantidade de cédulas de 20 reais: '))
             elif menu_adm == 4:
+                moedas_1_real += moedas_1_real_pagamento
+                moedas_50_cent += moedas_50_cent_pagamento
+                moedas_25_cent += moedas_25_cent_pagamento
+                cedula_20_reais += cedulas_20_reais_pagamento
+                cedula_10_reais += cedulas_10_reais_pagamento
+                cedula_5_reais += cedulas_5_reais_pagamento
+                cedula_2_reais += cedulas_2_reais_pagamento
                 print('-='*30, '\nQuantidade de moedas!\n', '-='*30)
                 print("A quantidade de moedas de 25 centavos são de:", moedas_25_cent)
                 print("A quantidade de moedas de 50 centavos são de:", moedas_50_cent)
