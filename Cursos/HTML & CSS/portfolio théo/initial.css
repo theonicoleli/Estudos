@@ -55,7 +55,7 @@ body {
 
 .outsquare {
     display: flex;
-    margin-left: 800px;
+    margin-left: 720px;
     margin-top: 30px;
 }
 
@@ -131,6 +131,26 @@ body {
 }
 
 #youtube_button img {
+    width: 30px;
+    height: auto;
+    float: left;
+}
+
+#contato_button {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#contato_button a {
+    text-decoration: none;
+    color: black;
+}
+
+#contato_button:hover a {
+    color: white;
+}
+
+#contato_button img{
     width: 30px;
     height: auto;
     float: left;
