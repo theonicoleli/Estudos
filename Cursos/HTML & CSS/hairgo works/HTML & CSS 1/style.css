@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-light-50: #f8fafc;
+    --color-dark-100: #797984;
+    --color-dark-900: #000;
+
+    --color-purple-50: #6139a5;
+    --color-purple-100: #781dcd;
+    --color-purple-200: #c162d9;
+
+    --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100, var(--color-purple-200)))
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: blueviolet;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: var(--color-gradient);
+}
+
+#forma_geral{
+    background-color: white;
+    padding: 60px 60px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.336);
+    align-items: center;
+    gap: 30px;
+    margin-top: -100px;
+}
+
+#forma_cadastrar h1{
+    font-size: 50px;
+    position: absolute;
+    margin-top: -30px;
+    right: 51%
+}
+
+#forma_cadastrar h1::before {
+    position: absolute;
+    content: '';
+    width: 90px;
+    background-color: var(--color-purple-50);
+    height: 3px;
+    bottom: 10px;
+    border-radius: 3px;
+    align-items: center;
+}
+
+#forma_cadastrar i{
+    float: right;
+    justify-content: right;
+    align-items: right;
+    display: flex;
+    font-size: 20px;
+}
+
+#forma_cadastramento {
+    text-align: left;
+    margin-top: 100px;
+}
+
+.nome{
+    font-size: 20px;
+}
+
+.nome input{
+    border: none;
+    width: 330px;
+    font-size: 20px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    border-bottom: 1px solid var(--color-purple-50);
+    background-color: transparent;
+}
+
+.e-mail {
+    font-size: 20px;
+}
+
+.e-mail input{
+    border: none;
+    width: 330px;
+    font-size: 20px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    border-bottom: 1px solid var(--color-purple-50);
+    background-color: transparent;
+}
+
+.senha{
+    font-size: 20px;
+}
+
+.senha input{
+    border: none;
+    width: 330px;
+    font-size: 20px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    border-bottom: 1px solid var(--color-purple-50);
+    background-color: transparent;
+}
+
+.datanascimento{
+    font-size: 20px;
+    width: 330px;
+}
+
+.datanascimento input{
+    border: none;
+    font-size: 20px;
+    width: 330px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    border-bottom: 1px solid var(--color-purple-50);
+    background-color: transparent;
+}
+
+.button {
+    border: none;
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+    color: #ffffff;
+    background: var(--color-gradient);
+    padding: 10px;
+    width: 330px;
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.button:hover {
+    transform:scale(1.05);
+}
+
+.registrar {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#frase_cadastrar{
+    text-align: center;
+    margin-top: 60px;
+}
+
+#voltar_login{
+    margin-top: -45px;
+    text-align: center;
+    font-size: 12px;
+}
+
+#icon_moon_sun {
+    cursor: pointer;
+}
+
+.dark#forma_geral {
+    color: rgb(255, 255, 255);
+    background-color: #0c0c0c;
+    transition: background 0.5s ease-in-out;
+}
+
+.dark#forma_geral:hover {
+    box-shadow: inset 30px #0c0c0c;
+}
+
+.dark#forma_geral h1{
+    color: white;
+}
+
+.dark#forma_geral .input-field input,
+.dark#forma_geral .input-field i{
+    color: white;
+}
+
+.dark#forma_geral input{
+    color: white;
+}
