@@ -6,37 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="initial.css">
+    <script src="initialpage.js"></script>
     <title>Théo Portfólio</title>
 </head>
 <body>
     <h1 class="nome">Théo Lucas Nicoleli</h1>
-    <div class="outsquare">
-        <button type="submit" id="linkedin_button">
-            <img src="imagens/linkedin image.png">
-            <a href="https://www.linkedin.com/in/th%C3%A9o-lucas-nicoleli-194b49204/">Linkedin</a>
-        </button>
-        <button type="submit" id="github_button">
-            <img src="imagens/github image.png">
-            <a href="https://github.com/theonicoleli">GitHub</a>
-        </button>
-        <button type="submit" id="youtube_button">
-            <img src="imagens/youtube image.png">
-            <a href="curriculo_video.html">Currículo em vídeo</a>
-        </button>
-        <button type="submit" id="contato_button">
-            <img src="imagens/contato_imagem.png">  
-            <a href="https://wa.me//5541999809950?text=Tenho%20interesse%20em%20seus%20serviços!">WhatsApp</a>
-        </button>
-    </div>
-    <div id="square">
-        <div id="circle_image">
-            <img src="imagens/image_theo.png">
+    <div id="tela_principal">
+        <div class="outsquare">
+            <button type="submit" id="linkedin_button">
+                <img src="imagens/linkedin image.png">
+                <a href="https://www.linkedin.com/in/th%C3%A9o-lucas-nicoleli-194b49204/">Linkedin</a>
+            </button>
+            <button type="submit" id="github_button">
+                <img src="imagens/github image.png">
+                <a href="https://github.com/theonicoleli">GitHub</a>
+            </button>
+            <button type="submit" id="youtube_button">
+                <img src="imagens/youtube image.png">
+                <a href="curriculo_video.html">Currículo em vídeo</a>
+            </button>
+            <button type="submit" id="contato_button">
+                <img src="imagens/contato_imagem.png">  
+                <a href="https://wa.me//5541999809950?text=Tenho%20interesse%20em%20seus%20serviços!">WhatsApp</a>
+            </button>
+            <button type="submit" id="curriculo_button">
+                <i class="fa-solid fa-paper-plane"></i>
+                <iframe name="iframe_download" class="hidden"></iframe>
+                <a href="curriculo/theo_curriculo.docx" target="iframe_download">Download Currículo</a>
+            </button>
+        </div>
+        <div id="square">
+            <div id="circle_image">
+                <img src="imagens/image_theo.png">
+            </div>
         </div>
     </div>
-    <div class="custom-shape-divider-bottom-1685505211">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-        </svg>
-    </div>
+    <div id="tela_secundaria">
+        <a class="frase_design">
+            <i id="up_arrow" class="fa-solid fa-arrow-up fa-bounce"></i>
+            <br> <p id="frase_dentro">Aperte para mais informações</p>
+        </a>
+        <div class="custom-shape-divider-bottom-1685505211">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="custom-shape-divider-bottom-1685505211-second">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div id="sobre_mim" style="display: none;">
+            <h1 id="things_out_square"> Meus Projetos</h1>
+            <div id="square_about_me">
+                <div id="things_in_square">
+                    <section></section>
+                    <div id="sobre_refri">
+                        <h1>Projeto Máquina de Refri</h1>
+                        <p>
+                            Com este projeto realizado com meus colegas de equipe Francisco e Manuela na disciplina de Raciocínio Algorítmico, aprendemos bastante como utilizar as funções e métodos que o Python fornece, desenvolvendo uma confiança em nossos futuros projetos! Pode ser encontrado da maneira atual em meu GitHub, apontado no menu principal!
+                        </p>
+                    </div>
+                    <section></section>
+                    <div id="sobre_gerador">
+                        <h1>Gerador de CPF válido</h1>
+                        <p>
+                            Com estudos em casa, foi produzido um gerador de CPF válido para estudar melhor as funções 'def' e 'for' e adquirir um conhecimento maior sobre o 'for'. No futuro, pretendo alterá-lo para o CustomTkinter, mas no momento pode ser encontrado da maneira atual em meu GitHub, apontado no menu principal!
+                        </p>
+                    </div>
+                    <section id="works_hairgo"></section>
+                    <div id="sobre_hairgo">
+                        <h1>Projeto HairGo</h1>
+                        <p>
+                            Projeto da disciplina de experiência criativa juntamente com minha colega Amanda, foi produzido um site com intuito de facilitar o meio de comunicação entre cabeleireiro e cliente, podendo então o cliente encontrar o melhor cabeleireiro em sua região e para seu corte de cabelo, caso queira verificar de perto nosso projeto, acesse meu github no menu inicial
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
 </body>
 </html>
