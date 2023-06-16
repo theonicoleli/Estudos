@@ -12,6 +12,13 @@ moedas_cedulas = [
     [cedula_20_reais, "cedulas de 20 reais", 20]
 ]
 
+def verificar_devolucao():
+    for quantidade in range(len(moedas_cedulas)):
+        if moedas_cedulas[quantidade][2] == pagamento:
+            return moedas_cedulas[quantidade][2]
+        else:
+            continue
+
 def movimentacoes_pix():
     recibo_pix_total = 0
     for tp in telefone_pix:
@@ -22,9 +29,11 @@ def movimentacoes_pix():
 def verificar_possivel_pagamento():
     for quantidade in range(len(moedas_cedulas)):
         if trocado > moedas_cedulas[quantidade][0] * moedas_cedulas[quantidade][2]:
-            return False
+            continue
         else:
-            return True
+            if moedas_cedulas[quantidade][0] * moedas_cedulas[quantidade][2] != pagamento:
+                return True
+    return False
 
 def troca_bebidas():
     for quantidade in range(quant_refri):
@@ -102,7 +111,7 @@ def troco(pagamento, itens_depois, itens_depois_else):
             print(f'Devolvendo o valor pago: R$ {pagamento}')
         
         for itens in moedas_cedulas:
-            if itens[2] <= itens_depois and itens[0] > 0 or itens[2] <= itens_depois_else and itens[0] > 0:
+            if itens[2] <= itens_depois and itens[0] > 0 and verificar_devolucao() == itens[2] or itens[2] <= itens_depois_else and itens[0] > 0 and verificar_devolucao() == itens[2]:
                 quantidade_devolvida = min(itens[0], itens_depois) if itens_depois > 0 else min(itens[0], itens_depois_else)
                 print(f'Estamos devolvendo {quantidade_devolvida} de {itens[1]}')
                 itens[0] -= quantidade_devolvida
