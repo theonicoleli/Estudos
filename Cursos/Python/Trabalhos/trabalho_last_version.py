@@ -28,16 +28,16 @@ def verificar_possivel_pagamento():
 
 def troca_bebidas():
     for quantidade in range(quant_refri):
-        print(f'[{quantidade+1}] {produtos_preco_quantidade[0][quantidade]} = R$ {produtos_preco_quantidade[1][quantidade]}')
+        print(f'[{quantidade+1}] {produtos_preco_quantidade[quantidade][0]} = R$ {produtos_preco_quantidade[quantidade][1]}')
     escolha_troca = int(input('Digite qual você deseja alterar: '))
-    if escolha_troca in range(len(produtos_preco_quantidade[0])+1):
-        nome_produto[escolha_troca-1] = str(input('Digite o nome para o produto: '))
-        quantidade_produto[escolha_troca-1] = int(input(f'Digite a quantidade para o/a {nome_produto[escolha_troca-1]}: '))
-        preco_produto[escolha_troca-1] = float(input(f'Digite o preço do/da {nome_produto[escolha_troca-1]}: '))
-        preco_produto[escolha_troca-1] = round(preco_produto[escolha_troca-1], 2)
-        produtos_preco_quantidade[escolha_troca-1][0] = nome_produto[escolha_troca-1]
-        produtos_preco_quantidade[escolha_troca-1][1] = preco_produto[escolha_troca-1]
-        produtos_preco_quantidade[escolha_troca-1][2] = quantidade_produto[escolha_troca-1]
+    if escolha_troca in range(len([numeros[0] for numeros in produtos_preco_quantidade])+1):
+        nome_produto = str(input('Digite o nome para o produto: '))
+        quantidade_produto = int(input(f'Digite a quantidade para o/a {nome_produto}: '))
+        preco_produto = float(input(f'Digite o preço do/da {nome_produto}: '))
+        preco_produto = round(preco_produto, 2)
+        produtos_preco_quantidade[escolha_troca-1][0] = nome_produto
+        produtos_preco_quantidade[escolha_troca-1][1] = preco_produto
+        produtos_preco_quantidade[escolha_troca-1][2] = quantidade_produto
     else:
         print('Escolha uma bebida válida!')
 
@@ -231,6 +231,8 @@ def pix():
             else:
                 print('Digite um valor válido!')
                 continue
+    else:
+        print('Digite um número válido!')
 
 def selecao_pagamento():
     try:
