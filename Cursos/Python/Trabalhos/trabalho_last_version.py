@@ -66,14 +66,16 @@ def quantidade_moedas_cedulas_pagamento():
 
     pagamento = 0
     itens_antes = 0
-    itens_depois = 0
+    itens_depois_else = 0
 
     for itens in moedas_cedulas:
+        itens_depois = 0
         if itens[0] != 0:
             itens_antes = itens[0]
             itens[0] += int(input(f'Digite a quantidade de {itens[1]}: '))
             itens_depois = itens[0] - itens_antes
         else:
+            itens_depois_else = 0
             itens[0] += int(input(f'Digite a quantidade de {itens[1]}: '))
             pagamento += itens[2] * itens[0]
             itens_depois_else = pagamento
@@ -150,7 +152,7 @@ def realizar_compra():
         quantidade_selecionada = int(input('Digite a quantidade desejada para comprar: '))
         if quantidade_selecionada == 0:
             print('Digite uma quantidade válida!')
-        elif produtos_preco_quantidade[selecao - 1][2] > quantidade_selecionada:
+        elif produtos_preco_quantidade[selecao - 1][2] >= quantidade_selecionada:
             encontrado = False
             for item in continuando_compra:
                 if item[0] == produtos_preco_quantidade[selecao - 1][0]:
@@ -175,8 +177,6 @@ def realizar_compra():
                     somatoria_final += itens[0] * itens[1]
 
                 print(f'O total a pagar é: R$ {somatoria_final}')
-        else:
-            print('Estamos sem estoque desta bebida!')
     else:
         print('Digite um valor válido!')
 
@@ -269,6 +269,8 @@ for quantidade in range(quant_refri):
     quantidade_produto = int(input(f'Digite a quantidade desejada da bebida: '))
     quantidade_inicial = quantidade_produto
     produtos_preco_quantidade.append([nome_produto, preco_produto, quantidade_produto])
+
+quantidade_moedas_cedulas_adm()
 
 while True:
     realizar_compra()
