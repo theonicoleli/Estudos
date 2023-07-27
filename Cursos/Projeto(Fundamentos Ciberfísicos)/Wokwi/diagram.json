@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "ChicoMM",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -63.74,
+      "left": -2.79,
+      "attrs": { "env": "micropython-20230426-v1.20.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -121.82,
+      "left": -134.97,
+      "attrs": { "color": "gold" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -270.62,
+      "left": 240.8,
+      "attrs": { "distance": "71" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -258.28,
+      "left": 104.54,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "led1:C", "black", [ "h0" ] ],
+    [ "esp:D14", "led1:A", "green", [ "h0" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:D22", "green", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:D23", "green", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v56.32", "h-0.24", "v191.23" ] ],
+    [ "pir1:OUT", "esp:D4", "green", [ "v18.7", "h-1.15", "v203.84" ] ]
+  ],
+  "dependencies": {}
+}
