@@ -24,10 +24,15 @@ body{
     background-image: url(imagens/marinhoclaro.png);
     background-size: cover;
     background-position: center;
+    -webkit-font-smoothing: antialiased;
 }
 
 li{
     list-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 #inicial_information a{
@@ -35,6 +40,7 @@ li{
     color: white;
     font-size: 25px;
     font-family: var(--fonte-destaque);
+    white-space: nowrap;
 }
 
 #inicial_information a:hover{
@@ -140,11 +146,34 @@ header{
 
 .image_theo {
     float: right;
-    border-radius: 50%;
     position: relative;
+    width: 18%;
+    height: 18%;
     top: 0px;
     right: 150px;
     z-index: 9999;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.image_theo:after{
+    content: "";
+    position: absolute;
+    width: 19%;
+    height: 19%;
+    opacity: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: -1;
+}
+
+.image_theo:hover{
+    transform: scale(1.1,1.1);
+}
+
+.image_theo:hover:after{
+    opacity: 1;
 }
 
 .my_name {
@@ -266,6 +295,7 @@ a{
     justify-content: center;
     font-size: 50px;
     font-weight: 600;
+    overflow: hidden;
 }
 
 .sobre_mim .text{
@@ -333,14 +363,79 @@ a{
     color: white;
     text-align: center;
     font-size: 60px;
-    margin-top: 600px;
+    margin-top: 500px;
 }
 
-#final_information .sobre_mim{
-    color: white;
+#final_information .sobre{
+    color: #0e76a8;
     font-size: 20px;
     text-align: center;
     word-break: break-word;
+}
+
+#final_information {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.square{
+    display: flex;
+    text-align: center;
+    width: auto;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.sobre{
+    top: 70px;
+}
+
+.square .sobre{
+    background: #fff;
+    margin: 5px;
+    height: auto;
+    margin-bottom: 50px;
+    width: 300px;
+    padding: 20px;
+    position: relative;
+    border-radius: 30px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.square .sobre h3{
+    color: #15365d;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.square .sobre .theo_img{
+    position: absolute;
+    border-radius: 50%;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+}
+
+.square .sobre .theo_img i{
+    font-size: 50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.square .sobre p.role{
+    color: #ccc;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 12px 0;
+}
+
+.square .sobre p{
+    line-height: 20px;
 }
 
 #final_information .square{
@@ -357,7 +452,7 @@ a{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: -570px;
+    margin-top: -400px;
 }
 
 #habilidades .btn{
@@ -444,6 +539,146 @@ a{
     color: #ffd000;
 }
 
+.frase_works {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 500px;
+    text-align: center;
+}
+
+.works{
+    overflow: hidden;
+    margin: auto;
+}
+
+.work {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    box-shadow: 10 10px 10px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s linear;
+}
+
+.work a {
+    position: relative;
+    display: block;
+}
+
+.work h4{
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.work a img {
+    display: block;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    transition: brightness 0.3s ease, all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.work a img:not(:hover) {
+    filter: brightness(0.7);
+}
+
+.work a img:after {
+    content: "";
+    position: absolute;
+    width: 19%;
+    height: 19%;
+    opacity: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: -1;
+}
+
+.work a img:hover {
+    transform: scale(1.3, 1.3);
+    box-shadow: 0 0 8px #fff;
+    border: solid 1px #fff;
+}
+
+.work a img:hover:after {
+    opacity: 1;
+}
+
+.work a img:hover + .escrita {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.work .escrita {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.work:hover{
+    box-shadow: 0 0 13px #fff;
+    border-radius: 5px;
+}
+
+.works{
+    width: 50%;
+    height: 10%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.enviar_proposta h1{
+    text-align: center;
+    margin-top: 500px;
+}
+
+.enviar_proposta h1 a{
+    font-family: var(--fonte-destaque);
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 150px;
+}
+
+.enviar_proposta form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 45px;
+    width: 500px;
+    margin: auto;
+}
+
+.enviar_proposta form label{
+    margin: 10px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+
+.enviar_proposta .nome_enviado{
+    margin-top: 70px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
 @keyframes animate{
     40%, 60%{
         left: 100%; 
@@ -454,6 +689,10 @@ a{
 }
 
 @media(max-width: 992px){
+    .image_theo{
+        right: 70px;
+    }
+
     #inicial_information .links{
         display: none;
     }
@@ -486,32 +725,30 @@ a{
     .box {
         justify-content: center;
     }
+    
 }
 
-/* Estilos para telas menores ou iguais a 768px (mobile) */
 @media screen and (max-width: 768px) {
     .image_theo {
-        position: center;
-        border-radius: 50%;
+        float: none;
+        margin: 0 auto;
+        max-width: 0px;
     }
 
-    #mid_information h1 {
-        margin-right: 0;
-    }
-
+    #mid_information h1,
     #mid_information button {
         margin-right: 0;
     }
 
     .box {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
     .box .btn {
         height: 12vw;
         width: 12vw;
-        margin: 5px;
+        margin: 2px;
     }
 
     .box .btn .icon i {
@@ -520,18 +757,19 @@ a{
     }
 
     .box .btn span {
+        text-align: center;
         font-size: 4vw;
         line-height: 12vw;
         margin-left: 5px;
     }
 
     #final_information h1 {
-        margin-top: 10vh;
+        margin-top: 60vh;
         font-size: 5vw;
     }
 
     .sobre_mim {
-        font-size: 2.4vw;
+        font-size: 3.4vw;
         text-align: center;
     }
 
@@ -541,7 +779,13 @@ a{
     }
 
     .custom-shape-divider-bottom-1690387607 svg {
+        margin-top: -400px;
         width: 100%;
         height: 20vh;
+    }
+
+    #final_information .square {
+        width: 90%;
+        margin: auto;
     }
 }
