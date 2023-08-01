@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>
+            Meu site querido
+        </title>
+    </head>
+    <body bgcolor="#00FF00">
+        <form name="form1" id="form1" action="" method="GET" enctype="text/plain" onsubmit="return validate();">
+            <input type="text" name="txtName" id="txtName" style="width: 500px;"/><br>
+            <!--<input type="button" name="cmdSend" id="cmdSend" value="Enviar" onclick="btnSendOnClick();"/>-->
+            fumante? <input type="checkbox" name="chkSmoker" id="chkSmoker" value="1"/><br>
+            sexo: <input type="radio" name="optSex" id="optSex1" value="1"> masculino
+            <input type="radio" name="optSex" id="optSex2" value="2"> feminino<br>
+            <input type="submit" name="cmdSend" id="cmdSend" value="Enviar"/>
+            <input type="hidden" value="10"/>
+        </form>
+    </body>
+    <script language="javascript">
+        function btnSendOnClick() {
+            let name = document.getElementById('txtName').value;
+            if (form1.txtName.value == '') {
+                alert('Por favor, digite o nome do cidadão');
+                form1.txtName.focus();
+            }
+            else 
+                form1.submit();
+        }
+
+        function validate() {
+            if (form1.txtName.value == '') {
+                alert('Por favor, digite o nome do cidadão');
+                form1.txtName.focus();
+                return false;
+            }
+            else
+                form1.submit();
+        }
+    </script>
+</html>

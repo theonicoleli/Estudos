@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Testes com JavaScript</title>
+</head>
+<body>
+    <div class="tittle_text">
+        <h1><strong>Cadastro de DEV</strong></h1>
+        <p>Complete Suas Informações:</p>
+    </div>
+    <form name="cadastro" id="cadastro" method="get" action="" onsubmit="return validate();">
+        <fieldset>
+            <legend>Selecione as opções ligadas a sua função:</legend>
+            <p>Escreva seu nome: <br> <input type="text" name="nome" id="nome"></p>
+            <p>Digite o ano de seu nascimento: <br> <input type="date" name="nascimento" id="nascimento"></p>
+            <p>Selecione seu sexo:</p>
+            <select name="sexo" id="sexo">
+                <option value="nenhum">Nenhum</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+            <p>Selecione sua função:</p>
+            <select name="funcao" id="funcao">
+                <option value="nenhum">Nenhum</option>
+                <option value="frontend">Front-End</option>
+                <option value="backend">Back-End</option>
+                <option value="fullstack">Full-stack</option>
+            </select>
+            <p>Atuação:</p>
+            <select name="atuacao" id="atuacao">
+                <option value="nenhum">Nenhum</option>
+                <option value="dados">Dados</option>
+                <option value="desenvolvimento">Desenvolvimento</option>
+            </select>
+            <br>
+            <input type="submit" name="enviar" id="enviar" value="enviar">
+        </fieldset>
+    </form>
+</body>
+</html>
