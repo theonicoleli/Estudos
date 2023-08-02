@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos JS</title>
+</head>
+<body>
+    <h1>Apenas testando algumas funções básicas do JS</h1>
+</body>
+<script language="javascript">
+    // Existem várias possibilidades de transformar algo digitado pelo usuário para número usando Number.parseInt
+    // Ou usando Number.parseFloat, ou apenas Number(...)
+    // var nome = window.prompt('Digite seu nome: ')
+    // window.alert('Seja muito bem vindo, ' + nome + '!' + '\nEstamos Feliz em te receber!')
+    function isNumber(n) {
+        if (!isNaN(n)) {
+            return Number(n)
+        } else {
+            return false
+        }
+    }
+
+    function inverterTexto(string) {
+
+        // Separa os caracteres em uma Array (Lista)
+        var caracteres = string.split('')
+
+        // Invertendo os caracteres dentro da (Lista)
+        var caracteresInvertidos = caracteres.reverse();
+
+        // Agrupando usando .join
+        var textoInvertido = caracteresInvertidos.join('')
+
+        return textoInvertido
+    }
+
+    const n1 = (window.prompt('Digite um número: '))
+    const n2 = (window.prompt('Digite um segundo número: '))
+
+    var num1 = isNumber(n1)
+    var num2 = isNumber(n2)
+
+    if (num1 !== false && num2 !== false) {
+        var s = Number(num1) + Number(num2)
+        window.alert(`Seu número final foi: ${s}`)
+    } else {
+        window.alert('Digite um número, não letras!')
+    }
+
+    var nome = (window.prompt('Digite seu nome: '))
+
+    document.write(`Seu nome tem ${nome.length} letras. \nSeu nome invertido é: ${inverterTexto(nome)}`)
+
+    var letras = 'José'
+    console.log(letras.toUpperCase())
+    console.log(letras.length)
+    console.log(letras.toLowerCase())
+
+</script>
+</html>
