@@ -1,0 +1,5 @@
+-- Select (Seleciona uma das colunas)
+-- From (Planilha a qual estão os dados para a busca)
+-- Group by (Agrupa por classes)
+-- Where (Utilizado quando é necessário de um filtro anterior a agregação)
+-- Having (Quando tem filtro por valor de agregação)
