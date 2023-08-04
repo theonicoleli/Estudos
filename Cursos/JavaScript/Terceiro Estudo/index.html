@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100&family=Tektur&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Aprimorando conhecimentos JS</title>
+</head>
+<body>
+    <h1>Iniciando estudos DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <button onclick="blackEffect();">CLique em mim</button>
+    <div class="toggle_btn">
+        <i class="fa-solid fa-bars" style="font-size: 30px; float: right;" onclick="openBars(this)"></i>
+    </div>
+</body>
+<script>
+    function blackEffect(corpo){
+        corpo = window.document.body
+        if (corpo.style.background==='black') {
+            corpo.style.color = 'initial';
+            corpo.style.background = 'initial';
+        } else{
+            corpo.style.color = 'white';
+            corpo.style.background = 'black';
+        }
+    }
+
+    function openBars(icon) {
+        var division = document.querySelector('.toggle_btn');
+        var iconClasses = icon.classList;
+        var paragrafo = division.querySelector('p');
+
+        if (iconClasses.contains('fa-bars')) {
+            console.log('O ícone contém fa-bars!');
+            iconClasses.remove('fa-bars');
+            iconClasses.add('fa-xmark');
+        } if (!paragrafo) {
+            var novoParagrafo = document.createElement('p');
+            novoParagrafo.textContent = 'Parabéns, você conseguiu abrir o ícone!';
+            division.appendChild(novoParagrafo);
+        }     
+        else if (iconClasses.contains('fa-xmark')){
+            console.log('O ícone não contém fa-bars');
+            iconClasses.remove('fa-xmark');
+            iconClasses.add('fa-bars');
+        } if (paragrafo) {
+            division.removeChild(paragrafo);
+        }
+    }
+
+    // var p1 = window.document.getElementsByTagName('p')[0]
+    // p1.style.color = 'red'
+
+    var x = 8
+    var res = x % 2 == 0 ? x/2 : 'Sobrou resto.'
+
+    console.log(res)
+
+</script>
+</html>
