@@ -21,7 +21,10 @@
         <center>
         <form name="form1" id="form1" action="" enctype="text/plain" method="get">
             <input type="text" id="txtText" name="txtText" style="width: 600px;" class="textbox"/><br><br>
-            <input type="button" id="cmdSend" name="cmdSend" onclick="cmdSendOnClick()" value="Enviar" class="buttons"/>
+            <input type="text" id="mensagem" name="mensagem"><br><br>
+            <input type="text" id="data" name="data"><br><br>
+            <input type="text" id="ip" name="ip"><br><br>
+            <input type="button" id="cmdSend" name="cmdSend" onclick="cmdSendOnClick(); checkingTxt(); checkingDate(); checkingIP()" value="Enviar" class="buttons"/>
         </form>
         </center>
     </body>
@@ -79,5 +82,54 @@
             // Retornando verdadeiro pois tudo foi passado corretamente!
             return true;
         }
+
+        function checkingTxt() {
+            let msm = form1.mensagem.value;
+            
+            if (finallyO(msm)) {
+                // alert("Seu texto terminou com a letra 'O'.")
+                alert("Seu texto começa e termina com vogais!")
+            } else {
+                // alert("Seu texto não termina com a letra 'O'.")
+                alert("Seu texto não tem vogais no início e no fim.")
+            }
+        }
+
+        function finallyO(msm) {
+            // const verify = /[o | O]$/
+            const verify = /^[aeiouAEIOU].*[aeiouAEIOU]$/;
+            return verify.test(msm)
+        }
+
+        function checkingDate() {
+            let data = form1.data.value;
+
+            if (verifyingDate(data)) {
+                alert("Sua data está digitada corretamente!")
+            } else {
+                alert("Digite corretamente a data!")
+            }
+        }
+
+        function verifyingDate(data) {
+            const checking = /^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{2}|\d{4}$/;
+            return checking.test(data)
+        }
+
+        function checkingIP() {
+            let ip = form1.ip.value;
+
+            if (verifyingIP(ip)) {
+                alert("Seu IP é válido!")
+            } else {
+                alert("Seu IP não é válido!")
+            }
+        }
+
+        function verifyingIP(ip) {
+            const analysis = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)$/;
+            return analysis.test(ip)
+        }
+
     </script>
 </html>
