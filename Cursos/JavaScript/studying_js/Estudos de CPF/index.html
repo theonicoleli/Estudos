@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Aula 02 - Regex</title>
+        <style>
+            body {
+                color: #FFF;
+                font-size: 25px;
+            }
+            .textbox {
+                font-size: 25px;
+            }
+            .buttons {
+                font-size: 20px;
+                width: 100px;
+                height: 35px;
+            }
+        </style>
+    </head>
+    <body bgcolor="#009900">
+        <p align="center">Expressões Regulares - Regex</span>
+        <center>
+        <form name="form1" id="form1" action="" enctype="text/plain" method="get">
+            <input type="text" id="txtText" name="txtText" style="width: 600px;" class="textbox"/><br><br>
+            <input type="button" id="cmdSend" name="cmdSend" onclick="cmdSendOnClick()" value="Enviar" class="buttons"/>
+        </form>
+        </center>
+    </body>
+    <script>
+        function cmdSendOnClick() {
+            let cpf = form1.txtText.value;
+            if (checkingCPF(cpf) && isCPF(cpf)) {
+                alert("Seu cpf é válido!");
+            } else {
+                alert("Digite um número de CPF válido!");
+            }
+        }
+        function isCPF(cpf) {
+            const re = /^\d{3}(\.|[ ]?)\d{3}(\.|[ ]?)\d{3}(\-|[ ]?)\d{2}$/;
+            return re.test(cpf);
+        }
+        function checkingCPF(cpf) {
+            cpf = cpf.replace(/\D/g, ''); // Remover caracteres não numéricos do CPF
+
+            if (cpf.length !== 11) {  // Verificando se tem 11 caracteres retornando falso caso não tenha
+                return false
+            } 
+
+            else if (/^(\d)1{10}$/.test(cpf)) { // Verificando se foi repetido 10 vezes o número inicial retornando falso caso seja verdade
+                return false
+            }
+
+            // Calculando o primeiro dígito do cpf
+            var soma = 0
+            for (var i = 0; i < 9; i++) {
+                soma += parseInt(cpf.charAt(i)) * (10 - i);
+            }
+
+            // Verificando se o primeiro dígito está correto
+            var resto = 11 - (soma % 11);
+            var digito1 = (resto === 10 || resto === 11) ? 0 : resto;
+
+            if (digito1 !== parseInt(cpf.charAt(9))) {
+                return false;
+            }
+
+            // Calculando se o segundo dígito do cpf está correto
+            soma = 0
+            for (var j = 0; j < 10; j++) {
+                soma += parseInt(cpf.charAt(j)) * (11 - j);
+            }
+            resto = 11 - (soma % 11);
+            var digito2 = (resto === 10 || resto === 11) ? 0 : resto;
+
+            // Verificar se o segundo dígito verificador está correto
+            if (digito2 !== parseInt(cpf.charAt(10))) {
+                return false
+            }
+
+            // Retornando verdadeiro pois tudo foi passado corretamente!
+            return true;
+        }
+    </script>
+</html>
