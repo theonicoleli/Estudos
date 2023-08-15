@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha naval</title>
+</head>
+<body>
+    <style> 
+    body {
+        background-color: grey;
+    }
+    img {
+        border-radius: 20px;
+    }
+    h1 {
+        text-align: center;
+        font: bold;
+        font-size: 40px;
+    }
+    p {
+        text-align: center;
+        font-size: 35px;
+    }
+    </style>
+    <table width="400px" cellpading="0" cellspacing="0" border="0" align="center">
+    <script>
+        for (let i = 0; i < 5; i++) {
+            document.write("<tr>");
+            for (let j = 0; j < 8; j++) {
+                document.write(`<td width="90px" border="20px" onclick="btnOnClick(${i}, ${j})">`);
+                document.write(`<img width="90px" id="btn${i}${j}" src="imagens/woodWallpaper.jpg"></td>`);
+            }
+            document.write("</tr>");
+        }
+    </script>
+    </table>
+    <h1>Results:</h1>
+    <div id="resultDiv"></div>
+</body>
+<script>
+    let clickcount = 0;
+    let herobrineSquares = aleatoryNumbers();
+
+    function btnOnClick(x, y) {
+        let imagensChange = document.getElementById(`btn${x}${y}`)
+        if (imagensChange.src.includes("woodWallpaper.jpg") && x === herobrineSquares.x && y === herobrineSquares.y) {
+            imagensChange.src = "imagens/herobrine.png";
+            clickcount++;
+            herobrineSquares = aleatoryNumbers();
+        } else if (imagensChange.src.includes("woodWallpaper.jpg")) {
+            imagensChange.src = "imagens/mar.png";
+        }
+        else {
+            imagensChange.src = "imagens/woodWallpaper.jpg";
+            if (clickcount > 0) {
+                clickcount--;
+            }
+        }
+        updateResults();
+    }
+
+    function updateResults() {
+        let resultDiv = document.getElementById("resultDiv");
+        resultDiv.innerHTML = `<p>A quantidade de seus acertos foi de ${clickcount}</p>`;
+    }
+
+    function aleatoryNumbers() {
+        let randomX = Math.floor(Math.random() * 5);
+        let randomY = Math.floor(Math.random() * 8);
+    
+        return {x: randomX, y: randomY}
+    }
+</script>
+</html>
