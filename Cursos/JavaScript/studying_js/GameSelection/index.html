@@ -37,6 +37,7 @@
     </table>
     <h1>Results:</h1>
     <div id="resultDiv"></div>
+    <audio id="music" src="audio/musicaherobrine.3gp"></audio>
 </body>
 <script>
     let clickcount = 0;
@@ -46,6 +47,7 @@
         let imagensChange = document.getElementById(`btn${x}${y}`)
         if (imagensChange.src.includes("woodWallpaper.jpg") && x === herobrineSquares.x && y === herobrineSquares.y) {
             imagensChange.src = "imagens/herobrine.png";
+            playSong();
             clickcount++;
             herobrineSquares = aleatoryNumbers();
         } else if (imagensChange.src.includes("woodWallpaper.jpg")) {
@@ -70,6 +72,16 @@
         let randomY = Math.floor(Math.random() * 8);
     
         return {x: randomX, y: randomY}
+    }
+
+    function playSong() {
+        let audio = document.getElementById("music");
+        audio.currentTime = 35;
+        audio.play();
+
+        setTimeout(function() {
+            audio.pause();
+        }, 14000);
     }
 </script>
 </html>
