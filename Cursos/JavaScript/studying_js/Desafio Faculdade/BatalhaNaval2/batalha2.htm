@@ -1,0 +1,242 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Batalha Naval</title>
+    </head>
+    <body>
+        <table width=400px border="1" cellpadding=0 cellspacing=0 align=center>
+            <script language="JavaScript">
+                for(i=0; i<8; i++) {
+                    document.write("<tr>")
+                    for(j=0; j<12; j++) {
+                        document.write(`<td width=50 onclick='shipOnClick(${i}, ${j})'><img id='ship${i}${j}' width=50 height=50 src='Solid_grey.png'></td>`)
+                    }
+                    document.write("</tr>")
+                }
+            </script>
+            <tr>
+                <td colspan="9" style="text-align: center"><div id="divScoreboard">Pontos: 0 - Vidas: 3</div></td>
+            </tr>
+        </table>
+        <script language="JavaScript">
+            
+            const ships = [
+                    [0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 6, 0],
+                    [0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0],
+                    [0, 0, 1, 0, 3, 0, 1, 0, 0, 0, 0, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0, 0, 4, 0, 0],
+                    [0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 2, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0, 5, 0, 0, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0],
+                    [0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0]]
+            let life;
+            let points;
+            let endGame;
+            let modo=1;
+            
+            function resetGame() {
+
+                life = 5;
+                points = 0;
+                endGame = false;
+                shuffle();
+            }
+            
+            function shuffle() {
+                
+                for(i=0; i<1000; i++) {
+                    i1 = Math.floor(Math.random() * 8);
+                    j1 = Math.floor(Math.random() * 12);
+                    i2 = Math.floor(Math.random() * 8);
+                    j2 = Math.floor(Math.random() * 12);
+                    let temp = ships[i1][j1];
+                    ships[i1][j1] = ships[i2][j2];
+                    ships[i2][j2] = temp;
+                }
+            }
+            
+            function shipOnClick(indX, indY) {
+                
+                if (endGame) return;
+
+
+                if (modo==1){
+                    const ship = document.getElementById(`ship${indX}${indY}`);
+                    const type = ships[indX][indY];
+                    ship.src = getImage(type);
+                }
+                
+                if (modo==2){
+                    const ship = document.getElementById(`ship${indX-1}${indY}`);
+                    const type = ships[indX-1][indY];
+                    ship.src = getImage(type);
+                    const ship2 = document.getElementById(`ship${indX}${indY}`);
+                    const type2 = ships[indX][indY];
+                    ship2.src = getImage(type2);
+                    const ship3 = document.getElementById(`ship${indX+1}${indY}`);
+                    const type3 = ships[indX+1][indY];
+                    ship3.src = getImage(type3);
+                    const ship4 = document.getElementById(`ship${indX}${indY+1}`);
+                    const type4 = ships[indX][indY+1];
+                    ship4.src = getImage(type4);
+                    const ship5 = document.getElementById(`ship${indX}${indY-1}`);
+                    const type5 = ships[indX][indY-1];
+                    ship5.src = getImage(type5);
+                    modo=1;
+                    update_scoreboard(type);
+                }     
+                if (modo==3){
+                    const ship = document.getElementById(`ship${indX-1}${indY}`);
+                    const type = ships[indX-1][indY];
+                    ship.src = getImage(type);
+                    const ship2 = document.getElementById(`ship${indX}${indY}`);
+                    const type2 = ships[indX][indY];
+                    ship2.src = getImage(type2);
+                    const ship3 = document.getElementById(`ship${indX+1}${indY}`);
+                    const type3 = ships[indX+1][indY];
+                    ship3.src = getImage(type3);
+                    const ship4 = document.getElementById(`ship${indX}${indY+1}`);
+                    const type4 = ships[indX][indY+1];
+                    ship4.src = getImage(type4);
+                    const ship5 = document.getElementById(`ship${indX}${indY-1}`);
+                    const type5 = ships[indX][indY-1];
+                    ship5.src = getImage(type5);
+                    const ship6 = document.getElementById(`ship${indX-1}${indY-1}`);
+                    const type6 = ships[indX-1][indY-1];
+                    ship6.src = getImage(type6);
+                    const ship7 = document.getElementById(`ship${indX+1}${indY-1}`);
+                    const type7 = ships[indX+1][indY-1];
+                    ship7.src = getImage(type5);
+                    const ship8 = document.getElementById(`ship${indX+1}${indY+1}`);
+                    const type8 = ships[indX+1][indY+1];
+                    ship8.src = getImage(type5);
+                    const ship9 = document.getElementById(`ship${indX-1}${indY+1}`);
+                    const type9 = ships[indX-1][indY+1];
+                    ship9.src = getImage(type5);
+                    modo=1;
+                    update_scoreboard(type);
+                }     
+            }
+            
+            function getImage(type) {
+                switch (type) {
+                    case 0:
+                        return "clear_water.jpg";
+                        break;
+                    case 1:
+                        return "ship.png";
+                        break;
+                    case 2:
+                        return "sub-1de2.png";
+                        break;
+                    case 3:
+                        return "sub-2de2.png";
+                        break;
+                    case 4:
+                        return "battleship-1de3.png";
+                        break;
+                    case 5:
+                        return "battleship-2de3.png";
+                        break;
+                    case 6:
+                        return "battleship-3de3.png";
+                        break;
+                }
+                
+                return "back.jpeg";
+            }
+            
+            function update_scoreboard(type) {
+                
+                points += type;
+                if (type == 0) {
+                    life--;
+                    update_scoreboard_view();
+                    if (life == 0) {
+                        alert('Jogo Concluído!!!');
+                        endGame = true;
+                    }
+                }
+                else {
+                    update_scoreboard_view();
+                }
+            }
+            
+            function update_scoreboard_view() {
+                
+                const scoreboard = document.getElementById("divScoreboard");
+                scoreboard.innerHTML = "Pontos: " + points + " - Vidas: " + life;
+            }
+            
+            resetGame();
+        </script>
+    <div id="divSelection" name="divSelection">
+        <select name="selecao" id="selecao" onchange="text();">
+            <option value="nenhum">nenhum</option>
+            <option value="b1">Bomba</option>
+            <option value="b2">Bomba Atômica</option>
+        </select>
+        <p id="textoexplosao" style="display: none;">Selecione o quadrado que deseja explodir</p>
+        <button id="jogar" style="display: none;" onclick="alterarIcone();">JOGAR</button>
+        <p id="quantzero" style="display: none;">Você não possui nenhuma unidade de bomba</p>
+    </div>
+    <script>
+        let b1 = 2;
+        let b2 = 2;
+
+        function text() {
+
+            let select = document.getElementById("selecao")
+
+            if (select.value === "nenhum") {
+                return;
+            }
+
+            let texto = document.getElementById("textoexplosao");
+            texto.style.display = "block";
+
+            let button = document.getElementById("jogar");
+            button.style.display = "block";
+
+            modo=1
+        }
+
+        function alterarIcone() {
+
+            let select = document.getElementById("selecao")
+
+            let texto = document.getElementById("textoexplosao");
+            texto.style.display = "none";
+
+            let button = document.getElementById("jogar");
+            button.style.display = "none";
+
+            if (select.value == "b1" || select.value == "b2") {
+
+                if (select.value == "b1" && b1 > 0) {
+                    modo=2
+                    b1--;
+                }
+                else if (select.value == "b2" && b2 > 0) {
+                    modo=3
+                    b2--;
+                }
+                else{
+
+                    let quantzero = document.getElementById("quantzero")
+                
+                    quantzero.style.display = "block"
+
+                    setTimeout(() => {quantzero.style.display = "none"}, 5000)
+
+                }
+
+            }
+            select.value = "nenhum"
+
+            console.log(b1, b2)
+
+        }
+    </script>
+    </body>
+</html>

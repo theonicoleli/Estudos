@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=REM&display=swap');
+
+body{
+    background-image: url('ImagemDeFundo.jpeg'); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:100% 100%;
+    font-family: 'Darumadrop One', cursive;
+    font-family: 'REM', sans-serif;
+    
+}
+.botoes{
+    width: 200px;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    margin-top: -50px;
+     margin-left: -100px;
+}
+#IniciarJogo{
+    text-align: center;
+    color: white;
+    background:darkblue;
+    margin-top:20px;
+    border-radius: 10px;
+    width:200px;
+    height:45px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+select{
+    display: block;
+    width: 200px;
+}
+a{
+    text-align: center;
+    text-decoration: none;
+    color:white ;
+    font-size: 20px;
+}
+#TextoVidas{
+    margin-left: 11%;
+    text-decoration: none;
+    color:white ;
+    font-size: 20px;
+}
+#vidas{
+    margin-top: 10px;
+    margin-left: 15%;
+}
+p{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+.radio-button {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px;
+    position: relative;
+    align-items: center;
+    color: white;
+  }
+  
+  .radio-button input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .radio {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transform: translateZ(-25px);
+  }
+  
+  .radio::before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 5px;
+    left: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio {
+    transform: translateZ(0px);
+    background-color: #fff;
+  }
+  
