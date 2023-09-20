@@ -34,4 +34,4 @@ while True:
         string = countingletter(name)
         print(string)
     else:
-        print('Digite um nome!')
+        print('Digite algo válido.')
