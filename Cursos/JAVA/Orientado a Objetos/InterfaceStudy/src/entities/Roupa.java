@@ -2,11 +2,11 @@ package entities;
 
 public abstract class Roupa implements Produto{
 
-    public String nome;
-    public String marca;
-    public double preco;
-    public String tamanho;
-    public String cor;
+    private String nome;
+    private String marca;
+    protected double preco;
+    private String tamanho;
+    private String cor;
 
     public Roupa(){
     }
