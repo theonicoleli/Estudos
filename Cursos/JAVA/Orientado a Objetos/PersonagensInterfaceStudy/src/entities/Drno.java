@@ -13,7 +13,7 @@ public class Drno extends Terrorista{
         if (vivo) {
             System.out.println("Drno saltando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 
@@ -22,7 +22,7 @@ public class Drno extends Terrorista{
         if (vivo) {
             System.out.println("Drno atirando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 
@@ -31,7 +31,7 @@ public class Drno extends Terrorista{
         if (vivo) {
             System.out.println("Drno correndo");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 }

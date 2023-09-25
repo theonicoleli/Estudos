@@ -13,7 +13,7 @@ public class Batman extends Heroi implements Camuflagem{
         if (vivo) {
             System.out.println("Batman atirando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 
@@ -22,7 +22,7 @@ public class Batman extends Heroi implements Camuflagem{
         if (vivo) {
             System.out.println("Batman se camuflando de cor: " + cor);
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 }

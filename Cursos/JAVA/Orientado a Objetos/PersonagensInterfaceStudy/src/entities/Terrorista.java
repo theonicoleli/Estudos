@@ -13,7 +13,7 @@ public abstract class Terrorista extends Vilao{
         if (vivo) {
             System.out.println("Terrorista atirando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 }

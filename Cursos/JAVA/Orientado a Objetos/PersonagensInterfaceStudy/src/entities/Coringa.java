@@ -13,7 +13,7 @@ public class Coringa extends Ladrao{
         if (vivo) {
             System.out.println("Coringa atirando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 }

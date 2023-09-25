@@ -13,7 +13,7 @@ public abstract class Heroi extends Personagem{
         if (vivo) {
             System.out.println("Heroi correndo");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 
@@ -22,7 +22,7 @@ public abstract class Heroi extends Personagem{
         if (vivo) {
             System.out.println("Heroi saltando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 }

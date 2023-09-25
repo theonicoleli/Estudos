@@ -23,7 +23,7 @@ public abstract class Personagem implements AtividadesPersonagem{
         if (vivo) {
             System.out.println("Correndo");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 
@@ -31,7 +31,7 @@ public abstract class Personagem implements AtividadesPersonagem{
         if (vivo) {
             System.out.println("Saltando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 
@@ -39,7 +39,7 @@ public abstract class Personagem implements AtividadesPersonagem{
         if (vivo) {
             System.out.println("Atirando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 
@@ -47,7 +47,7 @@ public abstract class Personagem implements AtividadesPersonagem{
         if (vivo) {
             vivo = false;
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 

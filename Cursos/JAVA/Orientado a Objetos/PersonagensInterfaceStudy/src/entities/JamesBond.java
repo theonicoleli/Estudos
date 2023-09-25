@@ -13,7 +13,7 @@ public class JamesBond extends Heroi{
         if (vivo) {
             System.out.println("James Bond atirando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 
@@ -22,7 +22,7 @@ public class JamesBond extends Heroi{
         if (vivo) {
             System.out.println("James Bond saltando");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 }

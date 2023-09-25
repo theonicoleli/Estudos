@@ -13,7 +13,7 @@ public abstract class Vilao extends Personagem{
         if (vivo) {
             System.out.println("Vilão correndo");
         } else {
-            System.out.println(getClass().getSimpleName() + " está morto");
+            System.out.println(getClass().getSimpleName() + " não pode executar mais funções, esta morto");
         }
     }
 }
