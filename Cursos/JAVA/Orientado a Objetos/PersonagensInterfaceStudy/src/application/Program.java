@@ -45,6 +45,12 @@ public class Program {
 
         personagens.add(pinguim);
 
+        Personagem jamesBond = new JamesBond(vivo, posicao_x, posicao_y, posicao_z, cor);
+        jamesBond.atirar();
+        jamesBond.saltar();
+
+        personagens.add(jamesBond);
+
         for (Personagem personagem : personagens) {
             personagem.vivoMorto();
         }
@@ -53,5 +59,7 @@ public class Program {
             personagem.morrer();
             personagem.vivoMorto();
         }
+
+        batman.atirar(); // Não pode atirar, pois está morto!
     }
 }

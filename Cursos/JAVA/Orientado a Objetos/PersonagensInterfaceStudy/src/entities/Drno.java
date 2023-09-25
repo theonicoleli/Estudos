@@ -10,16 +10,28 @@ public class Drno extends Terrorista{
 
     @Override
     public void saltar() {
-        System.out.println("Drno saltando");
+        if (vivo) {
+            System.out.println("Drno saltando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     @Override
     public void atirar() {
-        System.out.println("Drno atirando");
+        if (vivo) {
+            System.out.println("Drno atirando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     @Override
     public void correr() {
-        System.out.println("Drno correndo");
+        if (vivo) {
+            System.out.println("Drno correndo");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 }

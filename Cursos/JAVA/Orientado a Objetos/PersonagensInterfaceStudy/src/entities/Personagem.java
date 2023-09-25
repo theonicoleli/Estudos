@@ -2,7 +2,7 @@ package entities;
 
 public abstract class Personagem implements AtividadesPersonagem{
 
-    private boolean vivo;
+    protected boolean vivo;
     private double posicao_x;
     private double posicao_y;
     private double posicao_z;
@@ -20,19 +20,35 @@ public abstract class Personagem implements AtividadesPersonagem{
     }
 
     public void correr(){
-        System.out.println("Correndo");
+        if (vivo) {
+            System.out.println("Correndo");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     public void saltar(){
-        System.out.println("Saltando");
+        if (vivo) {
+            System.out.println("Saltando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     public void atirar() {
-        System.out.println("Atirando");
+        if (vivo) {
+            System.out.println("Atirando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     public void morrer() {
-        vivo = false;
+        if (vivo) {
+            vivo = false;
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     public boolean getVivo(){

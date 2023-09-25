@@ -10,6 +10,10 @@ public class Coringa extends Ladrao{
 
     @Override
     public void atirar() {
-        System.out.println("Coringa atirando");
+        if (vivo) {
+            System.out.println("Coringa atirando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 }

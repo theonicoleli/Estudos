@@ -10,11 +10,19 @@ public class Pinguim extends Ladrao{
 
     @Override
     public void atirar() {
-        System.out.println("Pinguim atirando");
+        if (vivo) {
+            System.out.println("Pinguim atirando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     @Override
     public void correr() {
-        System.out.println("Pinguim correndo");
+        if (vivo) {
+            System.out.println("Pinguim correndo");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 }

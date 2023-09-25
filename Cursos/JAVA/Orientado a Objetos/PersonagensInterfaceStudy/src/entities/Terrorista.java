@@ -10,6 +10,10 @@ public abstract class Terrorista extends Vilao{
 
     @Override
     public void atirar() {
-        System.out.println("Terrorista atirando");
+        if (vivo) {
+            System.out.println("Terrorista atirando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 }

@@ -10,6 +10,10 @@ public abstract class Ladrao extends Vilao{
 
     @Override
     public void saltar() {
-        System.out.println("Ladrão saltando");
+        if (vivo) {
+            System.out.println("Ladrão saltando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 }

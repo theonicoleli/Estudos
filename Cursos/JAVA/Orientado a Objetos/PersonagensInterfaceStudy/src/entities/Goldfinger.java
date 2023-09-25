@@ -12,15 +12,27 @@ public class Goldfinger extends Terrorista implements Personificacao{
 
     @Override
     public void camuflar(int cor) {
-        System.out.println("Goldfinger se camuflando de cor: " + cor);
+        if (vivo) {
+            System.out.println("Goldfinger se camuflando de cor: " + cor);
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     @Override
     public void personificar(Heroi heroi) {
-        System.out.println("Goldfinger se transformou em " + heroi.getClass().getSimpleName());
+        if (vivo) {
+            System.out.println("Goldfinger se transformou em " + heroi.getClass().getSimpleName());
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     public void setHeroi(Heroi heroi) {
-        this.heroi = heroi;
+        if (vivo) {
+            this.heroi = heroi;
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 }

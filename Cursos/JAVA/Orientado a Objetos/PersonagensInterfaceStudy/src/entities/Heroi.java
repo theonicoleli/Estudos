@@ -10,11 +10,19 @@ public abstract class Heroi extends Personagem{
 
     @Override
     public void correr() {
-        System.out.println("Heroi correndo");
+        if (vivo) {
+            System.out.println("Heroi correndo");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 
     @Override
     public void saltar() {
-        System.out.println("Heroi saltando");
+        if (vivo) {
+            System.out.println("Heroi saltando");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 }

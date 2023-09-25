@@ -10,6 +10,10 @@ public abstract class Vilao extends Personagem{
 
     @Override
     public void correr() {
-        System.out.println("Vilão correndo");
+        if (vivo) {
+            System.out.println("Vilão correndo");
+        } else {
+            System.out.println(getClass().getSimpleName() + " está morto");
+        }
     }
 }
